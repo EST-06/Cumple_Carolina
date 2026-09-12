@@ -1,0 +1,168 @@
+.portada {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 100% at 50% 0%, #F4EEFF 0%, var(--fondo) 55%, #FDF3FA 100%);
+  padding: 48px 20px;
+  overflow: hidden;
+}
+
+.portada__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: floatOrb 14s ease-in-out infinite;
+}
+
+.portada__orb--1 {
+  width: 260px;
+  height: 260px;
+  background: var(--morado-suave);
+  top: -60px;
+  left: -60px;
+}
+
+.portada__orb--2 {
+  width: 220px;
+  height: 220px;
+  background: var(--azul-suave);
+  bottom: -50px;
+  right: -40px;
+  animation-delay: -4s;
+}
+
+.portada__orb--3 {
+  width: 180px;
+  height: 180px;
+  background: var(--rosado-claro);
+  top: 40%;
+  right: 8%;
+  animation-delay: -8s;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12px, -18px) scale(1.06); }
+}
+
+.portada__content {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.portada__kicker {
+  font-size: clamp(14px, 3.6vw, 16px);
+  color: var(--texto-suave);
+  margin-bottom: 14px;
+}
+
+.portada__title {
+  font-size: clamp(42px, 12vw, 64px);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.02;
+  background: linear-gradient(120deg, var(--morado-deep), var(--morado) 60%, var(--rosado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 28px;
+}
+
+.portada__gift {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 22px;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portada__giftSvg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 16px 24px rgba(139, 92, 246, 0.28));
+}
+
+.portada__gift:hover .portada__giftSvg {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.portada__giftLid {
+  transform-origin: 70px 60px;
+  transition: transform 0.4s ease;
+}
+
+.portada__gift.is-open .portada__giftLid {
+  transform: translate(-6px, -18px) rotate(-18deg);
+}
+
+.portada__gift.is-open .portada__giftSvg {
+  transform: scale(1.08);
+}
+
+.portada__giftGlow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 168, 212, 0.45), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.portada__gift.is-open .portada__giftGlow {
+  opacity: 1;
+}
+
+.portada__text {
+  font-size: clamp(15px, 3.6vw, 17px);
+  color: var(--texto);
+  margin-bottom: 26px;
+  padding: 0 8px;
+}
+
+.portada__cta {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 100%;
+  max-width: 260px;
+}
+
+.portada__cta.is-ready {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.portada__hint {
+  display: block;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--texto-suave);
+  transition: opacity 0.3s ease;
+}
+
+.portada__hint.is-hidden {
+  opacity: 0;
+}
+
+/* Confeti al abrir */
+.portada .confetti-piece {
+  top: 40%;
+  left: 50%;
+}
