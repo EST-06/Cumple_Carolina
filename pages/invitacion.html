@@ -1,0 +1,124 @@
+<section class="hero">
+  <div class="hero__orb hero__orb--1"></div>
+  <div class="hero__orb hero__orb--2"></div>
+
+  <p class="hero__kicker reveal">Mis</p>
+  <h1 class="hero__age reveal">[ EDAD ] años</h1>
+
+  <div class="hero__photoWrap reveal">
+    <img src="assets/fotos/foto-principal.jpg" alt="Foto principal de la celebración" class="hero__photo">
+    <span class="hero__photoRing"></span>
+  </div>
+
+  <h2 class="hero__name reveal">[ NOMBRE ]</h2>
+  <p class="hero__date reveal" id="eventDateText">19 DE SEPTIEMBRE</p>
+
+  <div class="countdown reveal" aria-label="Cuenta regresiva para la celebración">
+    <div class="countdown__chip countdown__chip--morado">
+      <span class="countdown__num" id="cdDays">00</span>
+      <span class="countdown__label">Días</span>
+    </div>
+    <div class="countdown__chip countdown__chip--azul">
+      <span class="countdown__num" id="cdHours">00</span>
+      <span class="countdown__label">Horas</span>
+    </div>
+    <div class="countdown__chip countdown__chip--rosa">
+      <span class="countdown__num" id="cdMins">00</span>
+      <span class="countdown__label">Min</span>
+    </div>
+    <div class="countdown__chip countdown__chip--morado">
+      <span class="countdown__num" id="cdSecs">00</span>
+      <span class="countdown__label">Seg</span>
+    </div>
+  </div>
+  <p class="countdown__doneMsg" id="cdDoneMsg">¡Hoy es el gran día!</p>
+</section>
+
+<section class="message">
+  <div class="container">
+    <p class="section-eyebrow reveal">¡Celebremos juntos!</p>
+    <h2 class="message__title reveal">Quiero que estés ahí</h2>
+    <p class="message__text reveal">
+      Hay momentos que se vuelven aún más especiales cuando los compartimos con las personas que queremos. Por eso quiero invitarte a celebrar conmigo este día tan especial.
+    </p>
+  </div>
+</section>
+
+<section class="info">
+  <div class="container">
+    <div class="info__ticket reveal">
+      <div class="info__row">
+        <div class="info__icon"><img src="assets/icons/calendario.svg" alt="" class="icon"></div>
+        <div class="info__text">
+          <span class="info__label">Fecha</span>
+          <span class="info__value">19 de septiembre</span>
+        </div>
+      </div>
+      <div class="info__divider"></div>
+
+      <div class="info__row">
+        <div class="info__icon"><img src="assets/icons/reloj.svg" alt="" class="icon"></div>
+        <div class="info__text">
+          <span class="info__label">Hora</span>
+          <span class="info__value">[ HORA ]</span>
+        </div>
+      </div>
+      <div class="info__divider"></div>
+
+      <div class="info__row">
+        <div class="info__icon"><img src="assets/icons/ubicacion.svg" alt="" class="icon"></div>
+        <div class="info__text">
+          <span class="info__label">Lugar</span>
+          <span class="info__value">[ LUGAR ]</span>
+          <span class="info__sub">[ DIRECCIÓN ]</span>
+        </div>
+      </div>
+      <div class="info__divider"></div>
+
+      <div class="info__row">
+        <div class="info__icon"><img src="assets/icons/estrellas.svg" alt="" class="icon"></div>
+        <div class="info__text">
+          <span class="info__label">Dress code</span>
+          <span class="info__value">[ DRESS CODE ]</span>
+        </div>
+      </div>
+      <div class="info__divider"></div>
+
+      <div class="info__row">
+        <div class="info__icon"><img src="assets/icons/pastel.svg" alt="" class="icon"></div>
+        <div class="info__text">
+          <span class="info__label">Celebración</span>
+          <span class="info__value">Cumpleaños</span>
+        </div>
+      </div>
+    </div>
+
+    <a id="btnComoLlegar" class="btn btn--outline info__mapsBtn reveal" href="AQUI_LINK_GOOGLE_MAPS" target="_blank" rel="noopener">
+      <img src="assets/icons/ubicacion.svg" alt="" class="icon" style="width:18px;height:18px;">
+      Cómo llegar
+    </a>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <p class="section-eyebrow reveal" style="text-align:center;">Recuerdos</p>
+    <h2 class="gallery__title reveal">Algunos momentos</h2>
+  </div>
+
+  <div class="gallery__grid">
+    <img src="assets/fotos/foto-1.jpg" alt="Recuerdo 1" class="gallery__img gallery__img--tall reveal">
+    <img src="assets/fotos/foto-2.jpg" alt="Recuerdo 2" class="gallery__img reveal">
+    <img src="assets/fotos/foto-3.jpg" alt="Recuerdo 3" class="gallery__img reveal">
+    <img src="assets/fotos/foto-4.jpg" alt="Recuerdo 4" class="gallery__img gallery__img--tall reveal">
+    <img src="assets/fotos/foto-5.jpg" alt="Recuerdo 5" class="gallery__img reveal">
+    <img src="assets/fotos/foto-6.jpg" alt="Recuerdo 6" class="gallery__img reveal">
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox__close" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" class="lightbox__img" src="" alt="Foto ampliada">
+</div>
+
+<div id="detallesMount"></div>
