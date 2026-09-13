@@ -1,4 +1,8 @@
 window.initPortada = function () {
+  if (window.buildStarfield) {
+    window.buildStarfield(document.querySelector(".portada .starfield"), 50);
+  }
+
   const giftBtn = document.getElementById("openGift");
   const invitationBtn = document.getElementById("openInvitation");
   const hint = document.querySelector(".portada__hint");

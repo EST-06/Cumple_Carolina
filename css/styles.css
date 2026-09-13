@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Paleta */
+  /* Paleta base */
   --morado: #8B5CF6;
   --morado-suave: #C4B5FD;
   --morado-deep: #5B21B6;
@@ -10,23 +10,53 @@
   --rosado: #F9A8D4;
   --rosado-claro: #FBCFE8;
   --dorado: #F0C36B;
-  --blanco: #FFFFFF;
-  --fondo: #FAF7FF;
-  --fondo-azul: #F2FAFF;
-  --fondo-rosa: #FEF5FA;
-  --texto: #4B4453;
-  --texto-suave: #7A7186;
 
   /* Tipografía */
-  --font-display: 'Fraunces', serif;
   --font-body: 'Outfit', sans-serif;
+  --font-display: 'Fraunces', serif;
 
   /* Layout */
   --max-width: 640px;
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 10px;
+
+  /* Tokens de tema — modo claro (default) */
+  --bg-page: #FAF7FF;
+  --bg-surface: #FFFFFF;
+  --bg-tint-a: #F2FAFF;
+  --bg-tint-b: #FBCFE8;
+  --text-heading: var(--morado-deep);
+  --text-body: #4B4453;
+  --text-muted: #7A7186;
+  --border-soft: var(--rosado-claro);
+  --heading-grad-1: var(--morado-deep);
+  --heading-grad-2: var(--morado);
+  --heading-grad-3: var(--rosado);
   --sombra: 0 18px 40px -18px rgba(91, 33, 182, 0.28);
+  --orb-opacity: 0.5;
+  --star-color: rgba(139, 92, 246, 0.55);
+  --star-glow: rgba(139, 92, 246, 0.35);
+}
+
+[data-theme="dark"] {
+  --font-display: 'Baloo 2', sans-serif;
+
+  --bg-page: #150F27;
+  --bg-surface: #1F1836;
+  --bg-tint-a: #17112C;
+  --bg-tint-b: #241733;
+  --text-heading: #F3ECFF;
+  --text-body: #E4DBFF;
+  --text-muted: #A996CF;
+  --border-soft: #3B2E5C;
+  --heading-grad-1: #C4B5FD;
+  --heading-grad-2: #F9A8D4;
+  --heading-grad-3: #7DD3FC;
+  --sombra: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  --orb-opacity: 0.28;
+  --star-color: rgba(255, 255, 255, 0.9);
+  --star-glow: rgba(255, 255, 255, 0.55);
 }
 
 * {
@@ -43,9 +73,10 @@ body {
   width: 100%;
   overflow-x: hidden;
   font-family: var(--font-body);
-  color: var(--texto);
-  background: var(--fondo);
+  color: var(--text-body);
+  background: var(--bg-page);
   -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 img {
@@ -65,7 +96,7 @@ a {
 h1, h2, h3 {
   font-family: var(--font-display);
   margin: 0;
-  color: var(--morado-deep);
+  color: var(--text-heading);
 }
 
 p {
@@ -115,7 +146,7 @@ p {
 
 .btn--primary {
   background: linear-gradient(135deg, var(--morado), var(--rosado));
-  color: var(--blanco);
+  color: #FFFFFF;
   box-shadow: var(--sombra);
 }
 
@@ -124,13 +155,72 @@ p {
 }
 
 .btn--outline {
-  background: var(--blanco);
-  color: var(--morado-deep);
+  background: var(--bg-surface);
+  color: var(--text-heading);
   border: 1.6px solid var(--morado-suave);
 }
 
 .btn--outline:hover {
   border-color: var(--morado);
+}
+
+/* ===== Toggle de tema ===== */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 600;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-surface);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  cursor: pointer;
+  transition: background 0.35s ease, transform 0.2s ease;
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle__icon--sun { display: none; }
+.theme-toggle__icon--moon { display: inline; }
+
+[data-theme="dark"] .theme-toggle__icon--sun { display: inline; }
+[data-theme="dark"] .theme-toggle__icon--moon { display: none; }
+
+/* ===== Starfield decorativo ===== */
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--star-color);
+  box-shadow: 0 0 6px var(--star-glow);
+  animation: starTwinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none;
+    opacity: 0.55;
+  }
 }
 
 /* Reveal on scroll */

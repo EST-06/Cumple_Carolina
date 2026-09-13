@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(120% 100% at 50% 0%, #F4EEFF 0%, var(--fondo) 55%, #FDF3FA 100%);
+  background: var(--bg-page);
   padding: 48px 20px;
   overflow: hidden;
 }
@@ -14,7 +14,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(60px);
-  opacity: 0.55;
+  opacity: var(--orb-opacity, 0.55);
   animation: floatOrb 14s ease-in-out infinite;
 }
 
@@ -59,7 +59,7 @@
 
 .portada__kicker {
   font-size: clamp(14px, 3.6vw, 16px);
-  color: var(--texto-suave);
+  color: var(--text-muted);
   margin-bottom: 14px;
 }
 
@@ -68,7 +68,7 @@
   font-style: italic;
   font-weight: 500;
   line-height: 1.02;
-  background: linear-gradient(120deg, var(--morado-deep), var(--morado) 60%, var(--rosado));
+  background: linear-gradient(120deg, var(--heading-grad-1), var(--heading-grad-2) 60%, var(--heading-grad-3));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -129,7 +129,7 @@
 
 .portada__text {
   font-size: clamp(15px, 3.6vw, 17px);
-  color: var(--texto);
+  color: var(--text-body);
   margin-bottom: 26px;
   padding: 0 8px;
 }
@@ -153,7 +153,7 @@
   display: block;
   margin-top: 16px;
   font-size: 13px;
-  color: var(--texto-suave);
+  color: var(--text-muted);
   transition: opacity 0.3s ease;
 }
 

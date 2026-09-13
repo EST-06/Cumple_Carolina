@@ -2,9 +2,13 @@
 
 ## Personalizar contenido
 Edita únicamente `js/config.js` (objeto `EVENT_CONFIG`):
-- `nombre`, `edad`, `fechaISO`, `fechaTexto`, `hora`, `lugar`, `direccion`, `dressCode`
-- `maps`, `spotify`, `formulario`, `drive` → reemplazar los placeholders `AQUI_LINK_...`
-- `mensaje`, `regaloTexto`, `regaloInfo`
+- `nombre`, `fechaISO`, `fechaTexto`, `hora`, `lugar`, `direccion`, `dressCode`
+- `maps` → ya apunta a la ruta real del evento; `formulario` → reemplazar `AQUI_LINK_FORMULARIO` por el link real de confirmación
+- `mensaje` → texto de la sección "Quiero que estés ahí"
+- `horaPista`, `personasPorPista`, `valorZapatos` → valores de la card de presupuesto compartido
+
+## Modo claro / oscuro
+El botón circular fijo en la esquina superior derecha alterna el tema. La preferencia se guarda en `localStorage` y se aplica automáticamente en visitas futuras. La tipografía de títulos cambia con el tema: **Fraunces** (itálica, elegante) en modo claro y **Baloo 2** (redondeada, festiva) en modo oscuro — se controla con la variable CSS `--font-display` en `css/styles.css`, bajo el selector `[data-theme="dark"]`.
 
 ## Reemplazar imágenes
 - `assets/fotos/foto-principal.jpg` → foto principal del hero (recomendado 4:5, ≥900px de ancho)
@@ -16,13 +20,16 @@ Los íconos están en `assets/icons/*.svg` (calendario, reloj, ubicación, regal
 
 ## Estructura
 ```
-index.html          → punto de entrada, carga CSS/JS y monta el router
-pages/portada.html   → pantalla inicial (caja de regalo interactiva)
-pages/invitacion.html→ hero, contador, mensaje, info y galería
-pages/detalles.html  → experiencia, regalo, música, compartir fotos y RSVP
-css/                 → un archivo por vista + styles.css con variables globales
-js/config.js         → datos editables centralizados
-js/app.js            → router (fetch de vistas, compatible con GitHub Pages y Live Server)
+index.html           → punto de entrada, carga CSS/JS, botón de tema y monta el router
+pages/portada.html    → pantalla inicial (caja de regalo interactiva)
+pages/invitacion.html → hero, contador, mensaje, información, presupuesto, galería y RSVP
+css/styles.css        → variables globales y tokens de tema claro/oscuro
+css/portada.css       → estilos de la portada
+css/invitacion.css    → estilos de hero, info, presupuesto, galería, lightbox y RSVP
+js/config.js          → datos editables centralizados
+js/theme.js           → lógica del selector de tema (localStorage)
+js/reveal.js          → animaciones de aparición al hacer scroll
+js/app.js             → router (fetch de vistas, compatible con GitHub Pages y Live Server)
 ```
 
 ## Ejecutar localmente

@@ -4,32 +4,29 @@
    la invitación. No es necesario tocar el resto del código.
 ============================================================ */
 const EVENT_CONFIG = {
-  nombre: "[ NOMBRE ]",
-  edad: "[ EDAD ]",
+  nombre: "Carolina",
 
   // Fecha y hora del evento (zona horaria Colombia, UTC-05:00)
-  fechaISO: "2026-09-19T18:00:00-05:00",
-  fechaTexto: "19 DE SEPTIEMBRE",
-  hora: "[ HORA ]",
+  fechaISO: "2026-09-19T14:30:00-05:00",
+  fechaTexto: "Sábado 19 de septiembre",
+  hora: "2:30 PM",
 
-  lugar: "[ LUGAR ]",
-  direccion: "[ DIRECCIÓN ]",
-  dressCode: "[ DRESS CODE ]",
+  lugar: "Centro Comercial Metrópolis",
+  direccion: "Av. 68 #75a – 50, Bogotá",
+  dressCode: "Rosado, morado o azul",
 
-  // Enlaces (reemplazar por los reales antes de compartir)
-  maps: "AQUI_LINK_GOOGLE_MAPS",
-  spotify: "AQUI_LINK_SPOTIFY",
-  formulario: "AQUI_LINK_FORMULARIO",
-  drive: "AQUI_LINK_GOOGLE_DRIVE",
+  // Enlace directo a la ruta (Google Maps)
+  maps:
+    "https://www.google.com/maps/dir/6.1143921,-75.3802178/Centro+Comercial+Metr%C3%B3polis+%2B,+Av.+68+%2375a+%E2%80%93+50,+Bogot%C3%A1/@5.1899107,-76.0532283,8z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x8e3f9b504583010f:0x3b7d1b18f2a7cb55!2m2!1d-74.082871!2d4.6804519!3e0?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
 
   // Mensaje de invitación (editable)
   mensaje:
     "Hay momentos que se vuelven aún más especiales cuando los compartimos con las personas que queremos. Por eso quiero invitarte a celebrar conmigo este día tan especial.",
 
-  // Información sobre regalos (editable)
-  regaloTexto:
-    "Lo más importante es compartir este día contigo. Pero si deseas tener un detalle, puedes hacerlo de la siguiente manera:",
-  regaloInfo: "[ INFORMACIÓN SOBRE REGALO ]",
+  // Presupuesto compartido por pista (bowling)
+  horaPista: "$121.000",
+  personasPorPista: 6,
+  valorZapatos: "$6.000",
 };
 
 window.EVENT_CONFIG = EVENT_CONFIG;

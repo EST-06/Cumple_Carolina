@@ -1,34 +1,40 @@
 window.initInvitacion = function () {
   const cfg = window.EVENT_CONFIG || {};
 
+  if (window.buildStarfield) {
+    window.buildStarfield(document.querySelector(".hero .starfield"), 70);
+    window.buildStarfield(document.querySelector(".rsvp .starfield"), 40);
+  }
+
   // ----- Datos del evento -----
-  document.querySelectorAll(".hero__name").forEach((el) => (el.textContent = cfg.nombre || el.textContent));
-  document.querySelectorAll(".hero__age").forEach((el) => (el.textContent = `${cfg.edad || "[ EDAD ]"} años`));
+  document.querySelectorAll(".hero__bigName").forEach((el) => (el.textContent = cfg.nombre || el.textContent));
 
   const dateTextEl = document.getElementById("eventDateText");
   if (dateTextEl && cfg.fechaTexto) dateTextEl.textContent = cfg.fechaTexto;
 
-  document.querySelectorAll(".info__value").forEach((el) => {
-    // Se actualizan explícitamente los campos con placeholder abajo
-  });
-
-  const setText = (selectorText, value) => {
-    document.querySelectorAll(".info__value").forEach((el) => {
-      if (el.textContent.trim() === selectorText) el.textContent = value;
-    });
+  const setById = (id, value) => {
+    const el = document.getElementById(id);
+    if (el && value !== undefined) el.textContent = value;
   };
-  if (cfg.hora) setText("[ HORA ]", cfg.hora);
-  if (cfg.lugar) setText("[ LUGAR ]", cfg.lugar);
-  if (cfg.dressCode) setText("[ DRESS CODE ]", cfg.dressCode);
 
-  const dirEl = document.querySelector(".info__sub");
-  if (dirEl && cfg.direccion) dirEl.textContent = cfg.direccion;
+  setById("infoFecha", cfg.fechaTexto);
+  setById("infoHora", cfg.hora);
+  setById("infoLugar", cfg.lugar);
+  setById("infoDireccion", cfg.direccion);
+  setById("infoDress", cfg.dressCode);
+
+  setById("presupuestoHora", cfg.horaPista);
+  setById("presupuestoPersonas", cfg.personasPorPista ? `${cfg.personasPorPista} personas` : undefined);
+  setById("presupuestoZapatos", cfg.valorZapatos);
+
+  const messageText = document.getElementById("messageText");
+  if (messageText && cfg.mensaje) messageText.textContent = cfg.mensaje;
 
   const mapsBtn = document.getElementById("btnComoLlegar");
   if (mapsBtn && cfg.maps) mapsBtn.setAttribute("href", cfg.maps);
 
   // ----- Contador regresivo -----
-  const target = new Date(cfg.fechaISO || "2026-09-19T18:00:00-05:00");
+  const target = new Date(cfg.fechaISO || "2026-09-19T14:30:00-05:00");
   const elDays = document.getElementById("cdDays");
   const elHours = document.getElementById("cdHours");
   const elMins = document.getElementById("cdMins");
@@ -95,18 +101,6 @@ window.initInvitacion = function () {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && lightbox.classList.contains("is-active")) closeLightbox();
     });
-  }
-
-  // ----- Carga de la sección de detalles (RSVP, música, regalo, compartir) -----
-  const mount = document.getElementById("detallesMount");
-  if (mount && window.loadInto) {
-    window
-      .loadInto(mount, "detalles")
-      .then(() => {
-        if (window.initDetalles) window.initDetalles();
-        if (window.initReveal) window.initReveal(document);
-      })
-      .catch(console.error);
   }
 
   if (window.initReveal) window.initReveal(document);

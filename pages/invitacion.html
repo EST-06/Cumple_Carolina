@@ -1,17 +1,17 @@
 <section class="hero">
+  <div class="starfield" aria-hidden="true"></div>
   <div class="hero__orb hero__orb--1"></div>
   <div class="hero__orb hero__orb--2"></div>
 
-  <p class="hero__kicker reveal">Mis</p>
-  <h1 class="hero__age reveal">[ EDAD ] años</h1>
+  <p class="hero__kicker reveal">¡Es mi cumpleaños!</p>
+  <h1 class="hero__bigName reveal">[ NOMBRE ]</h1>
 
   <div class="hero__photoWrap reveal">
     <img src="assets/fotos/foto-principal.jpg" alt="Foto principal de la celebración" class="hero__photo">
     <span class="hero__photoRing"></span>
   </div>
 
-  <h2 class="hero__name reveal">[ NOMBRE ]</h2>
-  <p class="hero__date reveal" id="eventDateText">19 DE SEPTIEMBRE</p>
+  <p class="hero__date reveal" id="eventDateText">Sábado 19 de septiembre</p>
 
   <div class="countdown reveal" aria-label="Cuenta regresiva para la celebración">
     <div class="countdown__chip countdown__chip--morado">
@@ -38,7 +38,7 @@
   <div class="container">
     <p class="section-eyebrow reveal">¡Celebremos juntos!</p>
     <h2 class="message__title reveal">Quiero que estés ahí</h2>
-    <p class="message__text reveal">
+    <p class="message__text reveal" id="messageText">
       Hay momentos que se vuelven aún más especiales cuando los compartimos con las personas que queremos. Por eso quiero invitarte a celebrar conmigo este día tan especial.
     </p>
   </div>
@@ -46,12 +46,15 @@
 
 <section class="info">
   <div class="container">
+    <p class="section-eyebrow reveal" style="text-align:center;">Información</p>
+    <h2 class="info__title reveal">Detalles del evento</h2>
+
     <div class="info__ticket reveal">
       <div class="info__row">
         <div class="info__icon"><img src="assets/icons/calendario.svg" alt="" class="icon"></div>
         <div class="info__text">
           <span class="info__label">Fecha</span>
-          <span class="info__value">19 de septiembre</span>
+          <span class="info__value" id="infoFecha">Sábado 19 de septiembre</span>
         </div>
       </div>
       <div class="info__divider"></div>
@@ -60,7 +63,7 @@
         <div class="info__icon"><img src="assets/icons/reloj.svg" alt="" class="icon"></div>
         <div class="info__text">
           <span class="info__label">Hora</span>
-          <span class="info__value">[ HORA ]</span>
+          <span class="info__value" id="infoHora">2:30 PM</span>
         </div>
       </div>
       <div class="info__divider"></div>
@@ -69,8 +72,8 @@
         <div class="info__icon"><img src="assets/icons/ubicacion.svg" alt="" class="icon"></div>
         <div class="info__text">
           <span class="info__label">Lugar</span>
-          <span class="info__value">[ LUGAR ]</span>
-          <span class="info__sub">[ DIRECCIÓN ]</span>
+          <span class="info__value" id="infoLugar">Centro Comercial Metrópolis</span>
+          <span class="info__sub" id="infoDireccion">Av. 68 #75a – 50, Bogotá</span>
         </div>
       </div>
       <div class="info__divider"></div>
@@ -79,16 +82,7 @@
         <div class="info__icon"><img src="assets/icons/estrellas.svg" alt="" class="icon"></div>
         <div class="info__text">
           <span class="info__label">Dress code</span>
-          <span class="info__value">[ DRESS CODE ]</span>
-        </div>
-      </div>
-      <div class="info__divider"></div>
-
-      <div class="info__row">
-        <div class="info__icon"><img src="assets/icons/pastel.svg" alt="" class="icon"></div>
-        <div class="info__text">
-          <span class="info__label">Celebración</span>
-          <span class="info__value">Cumpleaños</span>
+          <span class="info__value" id="infoDress">Rosado, morado o azul</span>
         </div>
       </div>
     </div>
@@ -97,6 +91,19 @@
       <img src="assets/icons/ubicacion.svg" alt="" class="icon" style="width:18px;height:18px;">
       Cómo llegar
     </a>
+
+    <div class="presupuesto reveal">
+      <div class="presupuesto__icon"><img src="assets/icons/moneda.svg" alt="" class="icon"></div>
+      <div class="presupuesto__body">
+        <h3 class="presupuesto__title">Sobre el presupuesto</h3>
+        <p class="presupuesto__text">
+          El valor por persona puede variar según cuántos seamos por pista. La hora de pista cuesta
+          <strong id="presupuestoHora">$121.000</strong> y juegan hasta
+          <strong id="presupuestoPersonas">6 personas</strong> por pista. Los zapatos tienen un valor único de
+          <strong id="presupuestoZapatos">$6.000</strong> por persona.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -121,4 +128,17 @@
   <img id="lightboxImg" class="lightbox__img" src="" alt="Foto ampliada">
 </div>
 
-<div id="detallesMount"></div>
+<section class="rsvp">
+  <div class="starfield" aria-hidden="true"></div>
+  <div class="rsvp__orb"></div>
+  <div class="container rsvp__inner">
+    <h2 class="rsvp__title reveal">¿Nos acompañas?</h2>
+    <p class="rsvp__text reveal">
+      Confirma tu asistencia para poder preparar todo y contar contigo.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer__text">✨ Nos vemos ✨</p>
+</footer>
