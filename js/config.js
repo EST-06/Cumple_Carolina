@@ -27,6 +27,17 @@ const EVENT_CONFIG = {
   horaPista: "$121.000",
   personasPorPista: 6,
   valorZapatos: "$6.000",
+
+  // Galería "Algunos momentos": agrega aquí el nombre de cada foto
+  // (deben estar en assets/fotos/). Se van acomodando en mosaico solas.
+  galeria: [
+    "foto-1.jpeg",
+    "foto-2.jpeg",
+    "foto-3.jpeg",
+    "foto-4.jpeg",
+    "foto-5.jpeg",
+    "foto-6.jpeg",
+  ],
 };
 
 window.EVENT_CONFIG = EVENT_CONFIG;

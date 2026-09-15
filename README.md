@@ -10,10 +10,11 @@ Edita únicamente `js/config.js` (objeto `EVENT_CONFIG`):
 ## Modo claro / oscuro
 El botón circular fijo en la esquina superior derecha alterna el tema. La preferencia se guarda en `localStorage` y se aplica automáticamente en visitas futuras. La tipografía de títulos cambia con el tema: **Fraunces** (itálica, elegante) en modo claro y **Baloo 2** (redondeada, festiva) en modo oscuro — se controla con la variable CSS `--font-display` en `css/styles.css`, bajo el selector `[data-theme="dark"]`.
 
-## Reemplazar imágenes
-- `assets/fotos/foto-principal.jpg` → foto principal del hero (recomendado 4:5, ≥900px de ancho)
-- `assets/fotos/foto-1.jpg` a `foto-6.jpg` → galería "Algunos momentos"
-- Mantén los mismos nombres de archivo para no tocar el HTML/CSS.
+## Reemplazar / agregar imágenes
+- `assets/fotos/foto-principal.jpeg` → foto principal del hero (recomendado 4:5, ≥900px de ancho)
+- Galería "Algunos momentos": agrega las fotos en `assets/fotos/` y luego lista su nombre
+  en el arreglo `galeria` de `js/config.js`. Se acomodan solas en mosaico (móvil 3 columnas,
+  tablet 4, escritorio 5) con proporciones alternas. No hace falta tocar el HTML/CSS.
 
 ## Reemplazar íconos
 Los íconos están en `assets/icons/*.svg` (calendario, reloj, ubicación, regalo, pastel, estrellas, música, cámara, confirmación). Puedes sustituir cada archivo por otro SVG/PNG manteniendo el mismo nombre.

@@ -33,6 +33,26 @@ window.initInvitacion = function () {
   const mapsBtn = document.getElementById("btnComoLlegar");
   if (mapsBtn && cfg.maps) mapsBtn.setAttribute("href", cfg.maps);
 
+  // ----- Galería dinámica (mosaico desde config.js) -----
+  const galleryGrid = document.querySelector(".gallery__grid");
+  const galeria = Array.isArray(cfg.galeria) ? cfg.galeria : [];
+  if (galleryGrid && galeria.length) {
+    galleryGrid.innerHTML = "";
+
+    // Proporciones alternadas para que el mosaico "respire"
+    const lecturas = ["9 / 16", "3 / 4", "9 / 16", "3 / 4"];
+
+    galeria.forEach((foto, i) => {
+      const img = document.createElement("img");
+      img.src = `${window.BASE || "./"}assets/fotos/${foto}`;
+      img.alt = `Recuerdo ${i + 1}`;
+      img.loading = "lazy";
+      img.className = "gallery__img reveal";
+      img.style.aspectRatio = lecturas[i % lecturas.length];
+      galleryGrid.appendChild(img);
+    });
+  }
+
   // ----- Contador regresivo -----
   const target = new Date(cfg.fechaISO || "2026-09-19T14:30:00-05:00");
   const elDays = document.getElementById("cdDays");
