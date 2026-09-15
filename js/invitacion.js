@@ -48,7 +48,30 @@ window.initInvitacion = function () {
       img.alt = `Recuerdo ${i + 1}`;
       img.loading = "lazy";
       img.className = "gallery__img reveal";
-      img.style.aspectRatio = lecturas[i % lecturas.length];
+
+      // Respeta la orientación real: vertical en marco vertical,
+      // horizontal en marco horizontal (sin rotar).
+      const setFrame = () => {
+        const w = img.naturalWidth;
+        const h = img.naturalHeight;
+        if (!w || !h) {
+          img.style.aspectRatio = lecturas[i % lecturas.length];
+          return;
+        }
+        if (h >= w) {
+          img.style.aspectRatio = lecturas[i % lecturas.length];
+        } else {
+          img.classList.add("gallery__img--wide");
+          img.style.aspectRatio = "16 / 9";
+        }
+      };
+
+      if (img.complete && img.naturalWidth) {
+        setFrame();
+      } else {
+        img.addEventListener("load", setFrame, { once: true });
+      }
+
       galleryGrid.appendChild(img);
     });
   }
