@@ -37,6 +37,12 @@ const EVENT_CONFIG = {
     "foto-4.jpeg",
     "foto-5.jpeg",
     "foto-6.jpeg",
+    "foto-7.jpeg",
+    "foto-8.jpeg",
+    "foto-9.jpeg",
+    "foto-10.jpeg",
+    "foto-11.jpeg",
+    "foto-12.jpeg",
   ],
 };
 
