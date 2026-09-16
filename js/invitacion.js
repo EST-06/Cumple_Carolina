@@ -33,6 +33,9 @@ window.initInvitacion = function () {
   const mapsBtn = document.getElementById("btnComoLlegar");
   if (mapsBtn && cfg.maps) mapsBtn.setAttribute("href", cfg.maps);
 
+  const whatsAppBtn = document.getElementById("btnGrupoWhatsApp");
+  if (whatsAppBtn && cfg.grupoWhatsApp) whatsAppBtn.setAttribute("href", cfg.grupoWhatsApp);
+
   // ----- Galería dinámica (mosaico desde config.js) -----
   const galleryGrid = document.querySelector(".gallery__grid");
   const galeria = Array.isArray(cfg.galeria) ? cfg.galeria : [];
